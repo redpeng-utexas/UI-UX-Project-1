@@ -3,6 +3,7 @@ let bgimage;
 let bgimageratio;
 let alucardidle;
 let altest;
+let scaleratio;
 
 function setup() {
   canvas = createCanvas(window.innerWidth, window.innerHeight-60); //creates a canvas which conforms to the width and height of the website.
@@ -19,6 +20,7 @@ function draw() {
   //set bg color to background of library
   background(144, 112, 1);
   bgimageratio = (bgimage.height / bgimage.width);
+  scaleratio = bgimage.width / innerWidth;
   image(bgimage, 0, innerHeight / 5, window.innerWidth, ( bgimageratio * innerWidth));
-  image(altest, mouseX, mouseY, altest.width, altest.height);
+  image(altest, mouseX, 250, 75, 50);
 }

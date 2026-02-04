@@ -60,15 +60,15 @@ function setup() {
 
   draArr1 = [];
   for(i = 0; i <= 27; i++){
-    draArr1[i] = loadImage('/Images/Dracula/DraculaThrow_' + encodeURIComponent(i) + encodeURIComponent('.png'));
+    draArr1[i] = loadImage('./Images/Dracula/DraculaThrow_' + encodeURIComponent(i) + encodeURIComponent('.png'));
   }
-  glass = loadImage('/Images/GlassAnim/glass_0.png');
-  brokenglass = loadImage('/Images/GlassAnim/glass_1.png');
-  gf1 = loadImage('/Images/GlassAnim/glass_2.png');
-  gf2 = loadImage('/Images/GlassAnim/glass_3.png');
-  gf3 = loadImage('/Images/GlassAnim/glass_4.png');
-  gf4 = loadImage('/Images/GlassAnim/glass_5.png');
-  dracula = loadImage('/Images/Dracula/DraculaThrow_19.png');
+  glass = loadImage('./Images/GlassAnim/glass_0.png');
+  brokenglass = loadImage('./Images/GlassAnim/glass_1.png');
+  gf1 = loadImage('./Images/GlassAnim/glass_2.png');
+  gf2 = loadImage('./Images/GlassAnim/glass_3.png');
+  gf3 = loadImage('./Images/GlassAnim/glass_4.png');
+  gf4 = loadImage('./Images/GlassAnim/glass_5.png');
+  dracula = loadImage('./Images/Dracula/DraculaThrow_19.png');
 
   
   fVals = [40, 30, 8, 6, 63, 6, 12, 40, 1, 6, 6, 4, 4, 6, 110, 6, 10, 1, 8, 5, 1, 5, 8, 1, 1,1,1]; 
@@ -84,7 +84,7 @@ function setup() {
       isFlipped = true;
     }
 
-  font = loadFont('/Fonts/SymphonyoftheNightfont.ttf'); /*font and text stuff*/
+  font = loadFont('./Fonts/SymphonyoftheNightfont.ttf'); /*font and text stuff*/
   fill(255, 255, 255, 180);
   stroke(0);
   textFont(font);
@@ -99,8 +99,8 @@ function setup() {
 
   resetDracula();
 
-  voice1 = createAudio('/Voices/WhatIsAManHQ.mp3');
-  voice2 = createAudio('/Voices/WhatIsAMan2HQ.mp3');
+  voice1 = createAudio('./Voices/WhatIsAManHQ.mp3');
+  voice2 = createAudio('./Voices/WhatIsAMan2HQ.mp3');
 
 
   

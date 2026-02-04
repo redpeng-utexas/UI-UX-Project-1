@@ -79,6 +79,10 @@ function setup() {
 
   futureX = Math.floor(Math.random() * (window.innerWidth));
   
+    isFlipped = false;
+    if(futureX > window.innerWidth/2){
+      isFlipped = true;
+    }
 
   font = loadFont('/Fonts/SymphonyoftheNightfont.ttf'); /*font and text stuff*/
   fill(255, 255, 255, 180);
@@ -115,7 +119,6 @@ function setup() {
 }
 
 function resetDracula(){
-  isFlipped = false;
   frame = 0;
   frame2 = -1;
 
@@ -134,9 +137,6 @@ function resetDracula(){
   ygf = -2;
   ygfhigh = -1;
   xDrac = futureX;
-  if(xDrac > window.innerWidth/2){
-    isFlipped = true;
-  }
   yDrac = window.innerHeight-1333;
   if(!isFlipped){xHand = xDrac + 58;} else{
     xHand = xDrac - 58;
@@ -287,6 +287,10 @@ function draw() {
     intro = 0;
     futureX = Math.min(mouseX + 50, window.innerWidth);
     frame3 = 0;
+    isFlipped = false;
+    if(futureX > window.innerWidth/2){
+      isFlipped = true;
+    }
     
   }
 
@@ -295,45 +299,45 @@ function draw() {
     switch (intro){
       case 0:
         animFrame2 = 25;
-        image(draArr1[25], futureX-50, yDrac, draculaWidth, draculaHeight);
+        image(draArr1[25], futureX-(105 * isFlipped), yDrac, draculaWidth, draculaHeight);
         break;
       case 1:
         animFrame2 = 24;
-        image(draArr1[24], futureX-50, yDrac, draculaWidth, draculaHeight);
+        image(draArr1[24], futureX-(105 * isFlipped), yDrac, draculaWidth, draculaHeight);
         break;
       case 2:
         animFrame2 = 23;
-        image(draArr1[23], futureX-50, yDrac, draculaWidth, draculaHeight);
+        image(draArr1[23], futureX-(105 * isFlipped), yDrac, draculaWidth, draculaHeight);
         break;
       case 3:
         animFrame2 = 22;
-        image(draArr1[22], futureX-50, yDrac, draculaWidth, draculaHeight);
+        image(draArr1[22], futureX-(105 * isFlipped), yDrac, draculaWidth, draculaHeight);
         break;
       case 4:
         animFrame2 = 21;
-        image(draArr1[21], futureX-50, yDrac, draculaWidth, draculaHeight);
+        image(draArr1[21], futureX-(105 * isFlipped), yDrac, draculaWidth, draculaHeight);
         break;
       case 5:
         animFrame2 = 22;
         resetDracula();
-        image(draArr1[22], futureX-50, yDrac, draculaWidth, draculaHeight);
+        image(draArr1[22], futureX-(105 * isFlipped), yDrac, draculaWidth, draculaHeight);
         break;
       case 6:
         animFrame2 = 23;
-        image(draArr1[23], futureX-50, yDrac, draculaWidth, draculaHeight);
+        image(draArr1[23], futureX-(105 * isFlipped), yDrac, draculaWidth, draculaHeight);
         break;
       case 7:
         animFrame2 = 24;
-        image(draArr1[24], futureX-50, yDrac, draculaWidth, draculaHeight);
+        image(draArr1[24], futureX-(105 * isFlipped), yDrac, draculaWidth, draculaHeight);
         break;
       case 8:
         animFrame2 = 25;
-        image(draArr1[25], futureX-50, yDrac, draculaWidth, draculaHeight);
+        image(draArr1[25], futureX-(105 * isFlipped), yDrac, draculaWidth, draculaHeight);
         break;
       case 9:
         animFrame2 = -1;
         frame3 = -1;
-        image(draArr1[26], futureX-50, yDrac, draculaWidth, draculaHeight);
+        image(draArr1[26], futureX-(105 * isFlipped), yDrac, draculaWidth, draculaHeight);
 
     }
     if(frame3 >= fVals[animFrame2]){

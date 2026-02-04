@@ -20,6 +20,7 @@ let gf2;
 let gf3;
 let gf4;
 let ygf;
+let ygfhigh;
 let xDrac;
 let yDrac;
 let xHand;
@@ -45,7 +46,7 @@ function setup() {
     draArr1[i] = loadImage('/Images/Dracula/DraculaThrow_' + encodeURIComponent(i) + encodeURIComponent('.png'));
   }
   draArr2 = [];
-  for(i = 9; i <= 25; i++){
+  for(i = 9; i <= 27; i++){
     draArr1[i] = loadImage('/Images/Dracula/DraculaThrow_' + encodeURIComponent(i) + encodeURIComponent('.png'));
   }
   glass = loadImage('/Images/GlassAnim/glass_0.png');
@@ -56,7 +57,7 @@ function setup() {
   gf4 = loadImage('/Images/GlassAnim/glass_5.png');
 
   animFrame = 0;
-  fVals = [60, 40, 6, 6, 73, 6, 20, 60, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  fVals = [60, 40, 6, 6, 73, 6, 20, 60, 1, 6, 6, 6, 6, 12, 6, 6, 12, 1, 1, 1, 1, 1, 1, 1, 1,0,0]; 
 
   dracula = loadImage('/Images/Dracula/DraculaThrow_19.png');
   draculaWidth = 200;
@@ -70,9 +71,10 @@ function setup() {
   textSize(32);
   strokeWeight(4);
 
-  xVelocity = 10;
-  yVelocity = 0;
-  ygf = 0;
+  xVelocity = 5;
+  yVelocity = -3;
+  ygf = -2;
+  ygfhigh = -1;
   xDrac = 0;
   yDrac = window.innerHeight-1333;
   xHand = xDrac + 58;
@@ -100,28 +102,68 @@ function draw() {
       
       
       if(yGlass >= yDrac + draculaHeight - 100){
-        image(brokenglass, xGlass, yGlass, 24, 24);
+        //image(brokenglass, xGlass, yGlass, 24, 24);
         isSmashed = true;
+        xGF1 = xGlass - 20;
+        yGF1 = yGlass - 20;
+        xGF2 = xGlass - 20;
+        yGF2 = yGlass - 20;
+        xGF3 = xGlass - 20;
+        yGF3 = yGlass - 20;
+        xGF4 = xGlass - 20;
+        yGF4 = yGlass - 20;
       } else { 
         image(glass, xGlass, yGlass, 24, 24);
-        xGlass+=5;
-        yGlass += (frame / 5);
+        xGlass+=xVelocity;
+        yGlass += yVelocity;
+        if(frame % 4 == 1){
+        yVelocity++;}
       }
     } else { frame = 0;}
 
-    if (isSmashed){
-      push();
-      rotate(90);
-      image(brokenglass, yGlass, -xGlass, 24, 24);
-      pop();
-    }
+    
 
-    if(animFrame > 24){
-      animFrame = 24;
+    if(animFrame > 26){
+      animFrame = 26;
     }
   }
 
   image(draArr1[animFrame], 0, yDrac, draculaWidth, draculaHeight);
+
+  if (isSmashed){
+      push();
+      rotate(90);
+      image(brokenglass, yGlass, -xGlass, 24, 24);
+      pop();
+      
+      if(yGF1 >= yDrac + draculaHeight - 100){
+        
+      } else {
+        if (frame % 4 == 1){
+          ygf++;
+        }
+        yGF1 += ygf;
+        xGF1 += 3;
+        yGF2 += ygf;
+        xGF2 -= 3;
+        image(gf1, xGF1, yGF1, 24, 24);
+        image(gf2, xGF2, yGF2, 24, 24);
+      }
+
+      if(yGF3 >= yDrac + draculaHeight - 100){
+        
+      } else {
+        if (frame % 4 == 1){
+          ygfhigh++;
+        }
+        yGF3 += ygfhigh;
+        xGF3 += 3;
+        yGF4 += ygfhigh;
+        xGF4 -= 3;
+        image(gf3, xGF3, yGF3, 24, 24);
+        image(gf4, xGF4, yGF3, 24, 24);
+      }
+    }
   
   //parseInt(frame / 15)
   

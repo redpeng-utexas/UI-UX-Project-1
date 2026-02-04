@@ -1,26 +1,35 @@
 let canvas;
-let bgimage;
-let bgimageratio;
-let alucardidle;
-let altest;
+let dracula;
 let scaleratio;
+let draculaWidth;
+let draculaHeight;
+let font;
 
 function setup() {
-  canvas = createCanvas(window.innerWidth, window.innerHeight-60); //creates a canvas which conforms to the width and height of the website.
-  background(220);
-  bgimage = loadImage('/Images/Long Library 2.png');
-  alucardidle = Image[1];
-  for (i = 0; i > 0; i++){
-    alucardidle[i] = loadImage('/Images/Alucard Idle/AlucardIdle_' + i + '.png');
-  }
-  altest = loadImage('/Images/Alucard Idle/AlucardIdle_0.png')
+  canvas = createCanvas(window.innerWidth, window.innerHeight*.96); //creates a canvas which conforms to the width and height of the website.
+  background(16, 16, 16);
+
+  //dracula = []
+
+  dracula = loadImage('/Images/DraculaAnimsFix/DraculaThrow_19.png');
+  draculaWidth = 200;
+
+  font = loadFont('/Fonts/SymphonyoftheNightfont.ttf'); /*font and text stuff*/
+  fill(255);
+  stroke(0);
+  textFont(font);
+  textSize(32);
+  strokeWeight(4);
 }
 
 function draw() {
-  //set bg color to background of library
-  background(144, 112, 1);
-  bgimageratio = (bgimage.height / bgimage.width);
-  scaleratio = bgimage.width / innerWidth;
-  image(bgimage, 0, innerHeight / 5, window.innerWidth, ( bgimageratio * innerWidth));
-  image(altest, mouseX, 250, 75, 50);
+  background(16, 16, 16);
+  
+  draculaHeight = draculaWidth * dracula.height / dracula.width; /*dracula height calculation*/
+
+  image(dracula, 1, -400, draculaWidth, draculaHeight);
+  
+  
+  
+  text(draculaHeight, 50, 50);
 }

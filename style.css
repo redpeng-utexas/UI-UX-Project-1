@@ -1,20 +1,27 @@
+@font-face {
+  font-family: SotN;
+  src: url('/Fonts/SymphonyoftheNightfont.ttf'); 
+}
+
 html, body {
   margin: 0;
   padding: 0;
+  background-color: #101010;
 }
 
 
 h1, h2, h3{
-  font-family:'Times New Roman', Times, serif;
+  font-family: 'SotN';
+  background-color: #101010;
+  color: white;
   font-size: small;
   text-align: right;
   margin-right: 1%;
   margin-top: 0;
 }
 
-p{
+p{ /*Reduces the space between lines*/
   margin-top: 0;
   margin-bottom: 0;
+  line-height: 0;
 }
-
-/* Comments! Woaaaah! */

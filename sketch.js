@@ -211,6 +211,7 @@ function draw() {
 
     if(animFrame > 26){
       animFrame = 26;
+      text("Click Anywhere for Another Philosophy Lesson", 50, 125);
     }
   }
 
